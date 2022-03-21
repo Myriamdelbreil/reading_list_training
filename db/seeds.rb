@@ -8,6 +8,13 @@
 
 require "faker"
 
+Review.destroy_all
+puts "Reviews destroyed"
+Article.destroy_all
+puts "Articles destroyed"
+User.destroy_all
+puts "Users destroyed"
+
 10.times do
   email = Faker::Internet.email
   username = Faker::Internet.username
@@ -20,7 +27,8 @@ puts "Users created. Now articles"
 User.all.each do |user|
   title = Faker::Book.title
   content = "#{Faker::Lorem.paragraph_by_chars} #{Faker::Lorem.paragraph_by_chars}"
-  article = Article.create(user: user, content: content, title: title)
+  description = Faker::Lorem.sentence(word_count: 3)
+  article = Article.create(user: user, content: content, title: title, description: description)
 end
 
 puts "Articles created. Now reviews"

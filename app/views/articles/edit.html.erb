@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Update your article</h1>
+</div>
+
+<div class="article_form">
+  <%= simple_form_for (@article) do |f| %>
+    <div class="inputs-article d-flex justify-content-evenly">
+      <div class="col" style="margin-right:1rem">
+        <%= f.input :title, as: :string %>
+      </div>
+      <div class="col">
+        <%= f.input :photo, as: :file %>
+      </div>
+    </div>
+    <%= f.input :description, as: :text %>
+    <%= f.input :content, as: :text, class:"article-description" %>
+    <%= f.submit class:"btn-submit" %>
+  <% end %>
+</div>

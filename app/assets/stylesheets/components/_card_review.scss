@@ -1,0 +1,28 @@
+.review_cards{
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 16px;
+  width: 90%;
+  margin:auto;
+  margin-bottom: 3rem;
+  .review_card{
+    height: 164px;
+    background-color: #F7F9F9;
+    padding: 2rem;
+    .review_card-top{
+      .review_card_user{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .review_card_title{
+        color: #601700;
+        font-size: 24px;
+        font-family: "Roboto Mono";
+      }
+      .review_card_date{
+        color: #E0D0C1;
+        font-size: 12px;
+      }
+    }
+  }
+}

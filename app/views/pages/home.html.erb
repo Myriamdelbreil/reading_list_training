@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1565453006698-a17d83b9e2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80);">
+  <div class="container">
+    <h1>Easy, simple, quick and quicker</h1>
+    <p>Read, discover and write your articles.</p>
+    <% if user_signed_in? %>
+      <%= link_to "Write something", new_article_path, class:"btn-banner" %>
+    <% else %>
+      <%= link_to "Join us", new_user_registration_path, class:"btn-banner" %>
+    <% end %>
+  </div>
+</div>

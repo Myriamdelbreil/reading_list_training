@@ -1,0 +1,40 @@
+.btn-banner{
+  background: #A76D60;
+  border-radius: 10px;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  color: #F7F9F9;
+  a{
+    font-family: 'Roboto Mono';
+    // font-style: normal;
+    // font-weight: 400;
+    font-size: 36px;
+    // line-height: 47px;
+    color: #F7F9F9;
+    text-decoration: none;
+  }
+  &:hover{
+    opacity: 0.9;
+    color: #F7F9F9;
+    text-decoration: none;
+  }
+}
+
+.btn-new-article{
+  background: #601700;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color:#F7F9F9;
+  .btn-new-article > a:hover{
+    opacity: 0.8;
+    color:#F7F9F9;
+  }
+}
+
+.btn-submit{
+  background-color: #E0D0C1;
+  font-family: "Roboto Mono";
+  border: none;
+  border-radius: 5px;
+}

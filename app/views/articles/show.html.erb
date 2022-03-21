@@ -1,0 +1,58 @@
+<div class="card_article_show">
+  <h1>
+    <%= @article.title %>
+  </h1>
+  <% if @article.photo.attached? %>
+    <%= cl_image_tag @article.photo.key, height:400 %>
+  <% else %>
+    <%= image_tag "https://images.unsplash.com/photo-1565453006698-a17d83b9e2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" %>
+  <% end %>
+  <div class="card_article_description">
+    <%= @article.description %>
+  </div>
+  <div class="card_article_content">
+    <%= @article.content %>
+  </div>
+
+  <h2>Leave the author a message</h2>
+</div>
+
+  <div class="review-form">
+    <%= simple_form_for [@article, @new_review] do |f| %>
+      <%= f.input :title, as: :string %>
+      <%= f.input :content, as: :text %>
+      <%= f.submit class:"btn-submit" %>
+    <% end %>
+
+
+  </div>
+
+  <h2 style="width:90%; margin:auto; color:#601700; font-family:'Roboto Mono'; margin-bottom:1rem;">All the reviews</h2>
+
+  <div class="review_cards">
+    <% @article.reviews.each do |review|  %>
+      <div class="review_card">
+        <div class="row review_card-top">
+          <div class="col">
+            <div class="review_card_title">
+              <%= review.title.capitalize %>
+            </div>
+            <div class="review_card_date">
+              <%= review.created_at.strftime("%d %m %Y") %>
+            </div>
+          </div>
+          <div class="col review_card_user">
+            <% if review.user.photo.attached? %>
+              <%= cl_image_tag review.user.photo.key, class:"avatar" %>
+            <% else %>
+              <%= image_tag "https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png", class:"avatar" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row review_card_bottom">
+          <%= review.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

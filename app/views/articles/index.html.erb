@@ -1,0 +1,44 @@
+<div class="articles_index">
+  <div class="container">
+    <h1>All the articles</h1>
+  </div>
+
+  <div class="cards_articles">
+    <% @articles.each do |article| %>
+      <div class="card_article">
+        <% if article.photo.attached? %>
+          <%= cl_image_tag article.photo.key, height:156 %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1565453006698-a17d83b9e2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80" %>
+        <% end %>
+        <div class="card_article_infos">
+          <h2><%= article.title %></h2>
+          <p><%= article.description %></p>
+          <p>Written by: </p>
+          <div class="row">
+            <div class="col">
+              <%= link_to "Read", article_path(article)%>
+            </div>
+            <% if article.user == current_user %>
+              <div class="col">
+                <%= link_to edit_article_path(article) do %>
+                  <i class="fas fa-pen-alt"></i>
+                <% end %>
+              </div>
+              <div class="col">
+                <%= link_to article_path(article), method: :delete, notice: "are you sure?" do %>
+                  <i class="fas fa-eraser"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="botton-index-articles">
+    <h2>Want to be published here?</h2>
+    <%= link_to "Share your story", new_article_path, class:"btn-new-article" %>
+  </div>
+</div>
