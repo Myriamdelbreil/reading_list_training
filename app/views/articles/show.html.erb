@@ -13,7 +13,9 @@
   <div class="card_article_content">
     <%= @article.content %>
   </div>
-
+  <div>
+    <p>Mark as read</p>
+  </div>
   <h2>Leave the author a message</h2>
 </div>
 
@@ -21,7 +23,7 @@
     <%= simple_form_for [@article, @new_review] do |f| %>
       <%= f.input :title, as: :string %>
       <%= f.input :content, as: :text %>
-      <%= f.submit class:"btn-submit" %>
+      <%= f.submit "Give your opinion",class:"btn-submit" %>
     <% end %>
 
 
